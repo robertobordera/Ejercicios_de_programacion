@@ -10,7 +10,6 @@
 <?php
 function esAnagrama(string $palabra1, string $palabra2)
 {
-    $esIgual = false;
     $palabraArray = [];
     $palabraArray2 = [];
 
@@ -23,17 +22,16 @@ function esAnagrama(string $palabra1, string $palabra2)
             array_push($palabraArray2, $palabra2[$i]);
         }
 
-
         $coincidencias = array_intersect($palabraArray, $palabraArray2);
         $valorNuevo = implode($coincidencias);
 
         if ($valorNuevo != $palabra1 && $valorNuevo != $palabra2) {
             echo "No es anagrama";
-            return $esIgual;
+            return false;
         }
-
-        $esIgual = true;
-        return $esIgual;
+        
+        echo "Son anagrama"
+        return true;
     } else {
         echo "No son anagrama";
         return false;
@@ -41,4 +39,3 @@ function esAnagrama(string $palabra1, string $palabra2)
 }
 
 $final = esAnagrama("amot", "roma");
-var_dump($final);
